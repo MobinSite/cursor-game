@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CURSOR COINS</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Vazirmatn:wght@400;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at 20% 20%,#073b73,transparent 30%),
+    radial-gradient(circle at 80% 80%,#48065d,transparent 30%),
+    #050711;
+
+    color:white;
+    font-family:Vazirmatn,Arial,sans-serif;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:50;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 4%;
+
+    background:#050711dd;
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid #ffffff15;
+}
+
+.logo{
+    font-family:Orbitron;
+    font-weight:900;
+    font-size:25px;
+}
+
+.logo span{
+    color:#00aaff;
+    text-shadow:0 0 20px #00aaff;
+}
+
+nav{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+nav button{
+    border:1px solid #ffffff15;
+    background:#ffffff09;
+    color:white;
+
+    padding:9px 13px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+}
+
+nav button:hover{
+    background:#008cff33;
+}
+
+/* CONTAINER */
+
+.container{
+    width:min(1250px,94%);
+    margin:30px auto;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:25px;
+}
+
+.hero h1{
+    font-family:Orbitron;
+    font-size:43px;
+    margin:0;
+}
+
+.hero h1 span{
+    color:#00aaff;
+    text-shadow:0 0 25px #00aaff;
+}
+
+.hero p{
+    color:#9daac3;
+}
+
+/* GAME */
+
+.game-card{
+    padding:25px;
+}
+
+.game-area{
+
+    height:620px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(#ffffff04 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff04 1px,transparent 1px),
+    #050914;
+
+    background-size:45px 45px;
+
+    border:1px solid #ffffff15;
+
+}
+
+/*
+    CURSOR
+    کاملاً ثابت وسط صفحه
+*/
+
+.cursor{
+
+    width:300px;
+    height:300px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    background:
+    radial-gradient(
+        circle at 35% 30%,
+        #1d5c91,
+        #071523 70%
+    );
+
+    border:7px solid #00aaff;
+
+    box-shadow:
+        0 0 25px #00aaff,
+        0 0 70px #00aaff66,
+        inset 0 0 50px #00aaff33;
+
+    transition:
+        transform .07s,
+        box-shadow .2s;
+
+}
+
+/*
+    با کلیک کوچک میشه ولی
+    مکانش هیچ تغییری نمی کنه
+*/
+
+.cursor:active{
+    transform:scale(.93);
+}
+
+.cursor:hover{
+
+    box-shadow:
+        0 0 35px #00aaff,
+        0 0 100px #00aaff99,
+        inset 0 0 70px #00aaff44;
+
+}
+
+.cursor-icon{
+    font-size:150px;
+
+    filter:
+    drop-shadow(0 0 20px #00aaff);
+}
+
+/* CLICK TEXT */
+
+.click-power{
+    text-align:center;
+    margin-top:20px;
+
+    font-family:Orbitron;
+    color:#00aaff;
+
+    font-size:25px;
+}
+
+/* FLOATING */
+
+.float{
+
+    position:absolute;
+
+    pointer-events:none;
+
+    font-family:Orbitron;
+    font-size:28px;
+    font-weight:900;
+
+    color:#00aaff;
+
+    animation:floatUp .8s forwards;
+
+}
+
+@keyframes floatUp{
+
+    from{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+    to{
+        opacity:0;
+        transform:translateY(-100px) scale(1.4);
+    }
+
+}
+
+/* COINS */
+
+.coins{
+    display:grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.coin-card{
+
+    background:#ffffff08;
+
+    border:1px solid #ffffff12;
+
+    border-radius:18px;
+
+    padding:17px;
+
+    text-align:center;
+
+    backdrop-filter:blur(12px);
+
+}
+
+.coin-icon{
+    font-size:42px;
+}
+
+.coin-name{
+    font-weight:800;
+    margin-top:5px;
+}
+
+.coin-number{
+
+    font-family:Orbitron;
+
+    font-size:22px;
+
+    margin-top:7px;
+
+}
+
+/* COLORS */
+
+.blue{
+    color:#00aaff;
+    text-shadow:0 0 20px #00aaff;
+}
+
+.red{
+    color:#ff304f;
+    text-shadow:0 0 20px #ff304f;
+}
+
+.yellow{
+    color:#ffe000;
+    text-shadow:0 0 20px #ffe000;
+}
+
+.void{
+    color:#a832ff;
+    text-shadow:0 0 25px #a832ff;
+}
+
+.cursorcoin{
+    color:#00fff0;
+    text-shadow:0 0 25px #00fff0;
+}
+
+.god{
+    color:#ffb700;
+    text-shadow:0 0 30px #ffb700;
+}
+
+.plus{
+    color:#ff45e8;
+    text-shadow:0 0 30px #ff45e8;
+}
+
+/* CARD */
+
+.card{
+
+    background:#ffffff08;
+
+    border:1px solid #ffffff12;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 20px 60px #0006;
+
+}
+
+/* BUTTON */
+
+.main-btn{
+
+    border:0;
+
+    padding:12px 19px;
+
+    margin:5px;
+
+    border-radius:11px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #008cff,
+        #7135ff
+    );
+
+    font-family:inherit;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+.main-btn:hover{
+
+    filter:brightness(1.15);
+
+    transform:translateY(-2px);
+
+}
+
+/* SHOP */
+
+.shop-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+.shop-item{
+
+    text-align:center;
+
+}
+
+/* UPGRADE */
+
+.upgrade-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+/* PROFILE */
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.avatar{
+
+    width:85px;
+    height:85px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:45px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #008cff,
+        #8c30ff
+    );
+
+}
+
+/* INPUT */
+
+input,select{
+
+    width:100%;
+
+    padding:13px;
+
+    margin:7px 0;
+
+    border-radius:11px;
+
+    border:1px solid #ffffff15;
+
+    background:#050914;
+
+    color:white;
+
+    outline:none;
+
+    font-family:inherit;
+
+}
+
+/* TRADE */
+
+.trade-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:20px;
+
+}
+
+/* ADMIN */
+
+.admin{
+
+    border:
+    1px solid #ff315544;
+
+    background:#30081244;
+
+}
+
+.admin h2{
+
+    color:#ff506b;
+
+}
+
+/* MODAL */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000c;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:100;
+
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(430px,90%);
+
+    padding:25px;
+
+    background:#0b1020;
+
+    border-radius:20px;
+
+    border:1px solid #ffffff18;
+
+}
+
+/* TOAST */
+
+#toast{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    translateY(100px);
+
+    background:#11192b;
+
+    border:1px solid #ffffff20;
+
+    padding:13px 22px;
+
+    border-radius:12px;
+
+    z-index:999;
+
+    transition:.3s;
+
+}
+
+#toast.show{
+
+    transform:
+    translateX(-50%)
+    translateY(0);
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .coins{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .shop-grid,
+    .upgrade-grid{
+        grid-template-columns:1fr;
+    }
+
+    .trade-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .cursor{
+
+        width:220px;
+        height:220px;
+
+    }
+
+    .cursor-icon{
+        font-size:110px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+CURSOR<span>COINS</span>
+</div>
+
+<nav>
+
+<button onclick="showPage('home')">
+🏠
+</button>
+
+<button onclick="showPage('game')">
+🖱️ GAME
+</button>
+
+<button onclick="showPage('shop')">
+🛒 SHOP
+</button>
+
+<button onclick="showPage('upgrade')">
+⚡ UPGRADE
+</button>
+
+<button onclick="showPage('profile')">
+👤 PROFILE
+</button>
+
+<button onclick="showPage('trade')">
+💱 TRADE
+</button>
+
+<button onclick="openAdmin()">
+👑 ADMIN
+</button>
+
+</nav>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<h1>
+<span>CURSOR</span> COINS
+</h1>
+
+<p>
+Click the Cursor • Collect Coins • Upgrade
+</p>
+
+</div>
+
+
+<div class="coins">
+
+
+<div class="coin-card">
+
+<div class="coin-icon blue">
+🔵
+</div>
+
+<div class="coin-name">
+BLUE COIN
+</div>
+
+<div
+id="blueHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+
+<div class="coin-card">
+
+<div class="coin-icon red">
+🔴
+</div>
+
+<div class="coin-name">
+RED COIN
+</div>
+
+<div
+id="redHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+
+<div class="coin-card">
+
+<div class="coin-icon yellow">
+🟡
+</div>
+
+<div class="coin-name">
+YELLOW COIN
+</div>
+
+<div
+id="yellowHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+
+<div class="coin-card">
+
+<div class="coin-icon void">
+🟣
+</div>
+
+<div class="coin-name">
+VOID COIN
+</div>
+
+<div
+id="voidHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+
+<div class="coin-card">
+
+<div class="coin-icon cursorcoin">
+🖱️
+</div>
+
+<div class="coin-name">
+CURSOR COIN
+</div>
+
+<div
+id="cursorHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+
+<div class="coin-card">
+
+<div class="coin-icon god">
+👑
+</div>
+
+<div class="coin-name">
+GOD COIN
+</div>
+
+<div
+id="godHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+
+<div class="coin-card">
+
+<div class="coin-icon plus">
+➕
+</div>
+
+<div class="coin-name">
++++++ COIN
+</div>
+
+<div
+id="plusHome"
+class="coin-number">
+0
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- GAME -->
+
+<section id="game" class="page">
+
+<div class="hero">
+
+<h1>
+🖱️ <span>CLICK</span>
+</h1>
+
+<p>
+روی Cursor کلیک کن!
+</p>
+
+</div>
+
+
+<div class="card game-card">
+
+<div
+id="gameArea"
+class="game-area">
+
+
+<!--
+     این Cursor ثابت است.
+     هیچ JavaScript ای
+     جای آن را تغییر نمی‌دهد.
+-->
+
+<div
+id="cursor"
+class="cursor"
+onclick="clickCursor()">
+
+<div class="cursor-icon">
+🖱️
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="click-power">
+
+هر کلیک:
+<span id="clickPower">
++1 🔵
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SHOP -->
+
+<section id="shop" class="page">
+
+<div class="hero">
+
+<h1>
+🛒 <span>SHOP</span>
+</h1>
+
+<p>
+قابلیت‌های جدید بخر.
+</p>
+
+</div>
+
+
+<div class="shop-grid">
+
+
+<div class="card shop-item">
+
+<h2>
+👆 DOUBLE TAP
+</h2>
+
+<p>
+هر کلیک دو برابر Blue Coin می‌دهد.
+</p>
+
+<h3>
+4 🔴
+</h3>
+
+<button
+class="main-btn"
+onclick="buyDouble()">
+
+BUY
+
+</button>
+
+<p id="doubleStatus">
+❌ فعال نیست
+</p>
+
+</div>
+
+
+<div class="card shop-item">
+
+<h2>
+🤖 AUTO CLICK
+</h2>
+
+<p>
+هر چند ثانیه یک Blue Coin می‌دهد.
+</p>
+
+<h3>
+20 🔴
+</h3>
+
+<button
+class="main-btn"
+onclick="buyAuto()">
+
+BUY
+
+</button>
+
+<p id="autoStatus">
+❌ فعال نیست
+</p>
+
+</div>
+
+
+<div class="card shop-item">
+
+<h2>
+⚡ POWER
+</h2>
+
+<p>
+قدرت کلیک را افزایش بده.
+</p>
+
+<h3>
+1 🟣
+</h3>
+
+<button
+class="main-btn"
+onclick="buyPower()">
+
+BUY
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- UPGRADE -->
+
+<section id="upgrade" class="page">
+
+<div class="hero">
+
+<h1>
+⚡ <span>UPGRADE</span>
+</h1>
+
+<p>
+قدرت Cursor را افزایش بده.
+</p>
+
+</div>
+
+
+<div class="upgrade-grid">
+
+
+<div class="card">
+
+<h2>
+👆 CLICK POWER
+</h2>
+
+<h3>
+LEVEL:
+<span id="clickLevel">
+1
+</span>
+</h3>
+
+<p>
+قیمت:
+<span id="clickPrice">
+10 🔵
+</span>
+</p>
+
+<button
+class="main-btn"
+onclick="upgradeClick()">
+
+UPGRADE
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🍀 LUCK
+</h2>
+
+<h3>
+LEVEL:
+<span id="luckLevel">
+1
+</span>
+</h3>
+
+<p>
+شانس جایزه بیشتر.
+</p>
+
+<button
+class="main-btn"
+onclick="upgradeLuck()">
+
+UPGRADE
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+💥 MULTIPLIER
+</h2>
+
+<h3>
+x<span id="multiplier">
+1
+</span>
+</h3>
+
+<p>
+قیمت:
+1 🟣
+</p>
+
+<button
+class="main-btn"
+onclick="upgradeMultiplier()">
+
+UPGRADE
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="page">
+
+<div class="hero">
+
+<h1>
+👤 <span>PROFILE</span>
+</h1>
+
+</div>
+
+
+<div class="card">
+
+<input
+id="name"
+placeholder="اسم بازیکن">
+
+<select id="avatar">
+
+<option>😎</option>
+<option>👑</option>
+<option>🔥</option>
+<option>💀</option>
+<option>🤖</option>
+<option>👽</option>
+<option>🤑</option>
+
+</select>
+
+<button
+class="main-btn"
+onclick="saveProfile()">
+
+SAVE PROFILE
+
+</button>
+
+</div>
+
+
+<br>
+
+
+<div
+id="profileBox"
+class="card"
+style="display:none">
+
+<div class="profile">
+
+<div
+id="avatarShow"
+class="avatar">
+😎
+</div>
+
+<div>
+
+<h2 id="nameShow">
+Player
+</h2>
+
+<p>
+CURSOR COINS PLAYER
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- TRADE -->
+
+<section id="trade" class="page">
+
+<div class="hero">
+
+<h1>
+💱 <span>TRADE</span>
+</h1>
+
+<p>
+ارسال سکه به بازیکن دیگر
+</p>
+
+</div>
+
+
+<div class="trade-grid">
+
+
+<div class="card">
+
+<h2>
+🎁 SEND COINS
+</h2>
+
+<input
+id="tradeName"
+placeholder="اسم بازیکن">
+
+
+<select id="tradeCoin">
+
+<option value="blue">
+🔵 BLUE
+</option>
+
+<option value="red">
+🔴 RED
+</option>
+
+<option value="yellow">
+🟡 YELLOW
+</option>
+
+<option value="void">
+🟣 VOID
+</option>
+
+<option value="cursor">
+🖱️ CURSOR
+</option>
+
+<option value="god">
+👑 GOD
+</option>
+
+<option value="plus">
+➕ +++++
+</option>
+
+</select>
+
+
+<input
+id="tradeAmount"
+type="number"
+min="1"
+placeholder="تعداد">
+
+
+<button
+class="main-btn"
+onclick="trade()">
+
+SEND
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+💰 WALLET
+</h2>
+
+<p>
+🔵 <b id="tBlue">0</b>
+</p>
+
+<p>
+🔴 <b id="tRed">0</b>
+</p>
+
+<p>
+🟡 <b id="tYellow">0</b>
+</p>
+
+<p>
+🟣 <b id="tVoid">0</b>
+</p>
+
+<p>
+🖱️ <b id="tCursor">0</b>
+</p>
+
+<p>
+👑 <b id="tGod">0</b>
+</p>
+
+<p>
+➕ <b id="tPlus">0</b>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ADMIN -->
+
+<section id="admin" class="page">
+
+<div class="hero">
+
+<h1>
+👑 <span>ADMIN PANEL</span>
+</h1>
+
+</div>
+
+
+<div class="card admin">
+
+<h2>
+ADMIN CONTROL
+</h2>
+
+<button
+class="main-btn"
+onclick="adminCoins()">
+
+💰 +1000 ALL COINS
+
+</button>
+
+
+<button
+class="main-btn"
+onclick="resetCoins()">
+
+🗑 RESET
+
+</button>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- ADMIN LOGIN -->
+
+<div
+id="adminModal"
+class="modal">
+
+<div class="modal-box">
+
+<h2>
+🔐 ADMIN LOGIN
+</h2>
+
+<input
+id="password"
+type="password"
+placeholder="رمز: 123">
+
+<button
+class="main-btn"
+onclick="login()">
+
+LOGIN
+
+</button>
+
+<button
+class="main-btn"
+onclick="closeAdmin()">
+
+CLOSE
+
+</button>
+
+</div>
+
+</div>
+
+
+<div id="toast">
+پیام
+</div>
+
+
+
+<script>
+
+/* =================================
+   DATA
+================================= */
+
+let data =
+JSON.parse(
+localStorage.getItem(
+"CURSOR_COINS_DATA"
+)
+)
+||
+{
+
+blue:0,
+red:0,
+yellow:0,
+void:0,
+cursor:0,
+god:0,
+plus:0,
+
+clickLevel:1,
+luckLevel:1,
+multiplier:1,
+
+double:false,
+auto:false,
+
+name:"",
+avatar:"😎",
+
+trades:[]
+
+};
+
+
+/* =================================
+   SAVE
+================================= */
+
+function save(){
+
+localStorage.setItem(
+"CURSOR_COINS_DATA",
+JSON.stringify(data)
+);
+
+updateUI();
+
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+function showPage(id){
+
+document
+.querySelectorAll(".page")
+.forEach(
+p=>p.classList.remove("active")
+);
+
+document
+.getElementById(id)
+.classList.add("active");
+
+}
+
+
+/* =================================
+   CLICK
+================================= */
+
+function clickCursor(){
+
+let amount =
+data.clickLevel *
+data.multiplier;
+
+
+/* DOUBLE TAP */
+
+if(data.double){
+
+amount *= 2;
+
+}
+
+
+/* LUCK */
+
+if(
+Math.random()
+<
+data.luckLevel * .02
+){
+
+amount *= 2;
+
+toast(
+"🍀 LUCK BONUS!"
+);
+
+}
+
+
+/* BLUE */
+
+data.blue += amount;
+
+
+/* CONVERSION */
+
+convert();
+
+
+/* FLOAT */
+
+floatText(
+"+"+amount+" 🔵"
+);
+
+
+save();
+
+}
+
+
+/* =================================
+   CONVERSION
+================================= */
+
+function convert(){
+
+/*
+10 BLUE
+=
+1 RED
+*/
+
+while(data.blue >= 10){
+
+data.blue -= 10;
+
+data.red++;
+
+}
+
+
+/*
+10 RED
+=
+1 YELLOW
+*/
+
+while(data.red >= 10){
+
+data.red -= 10;
+
+data.yellow++;
+
+}
+
+
+/*
+10 YELLOW
+=
+1 VOID
+*/
+
+while(data.yellow >= 10){
+
+data.yellow -= 10;
+
+data.void++;
+
+}
+
+
+/*
+10 VOID
+=
+1 CURSOR
+*/
+
+while(data.void >= 10){
+
+data.void -= 10;
+
+data.cursor++;
+
+}
+
+
+/*
+10 CURSOR
+=
+1 GOD
+*/
+
+while(data.cursor >= 10){
+
+data.cursor -= 10;
+
+data.god++;
+
+}
+
+
+/*
+10 GOD
+=
+1 +++++
+*/
+
+while(data.god >= 10){
+
+data.god -= 10;
+
+data.plus++;
+
+}
+
+}
+
+
+/* =================================
+   FLOAT
+================================= */
+
+function floatText(text){
+
+const area =
+document.getElementById(
+"gameArea"
+);
+
+const el =
+document.createElement(
+"div"
+);
+
+el.className="float";
+
+el.innerText=text;
+
+el.style.left=
+(50+
+Math.random()*20-10)
++"%";
+
+el.style.top="50%";
+
+area.appendChild(el);
+
+setTimeout(
+()=>el.remove(),
+800
+);
+
+}
+
+
+/* =================================
+   DOUBLE
+================================= */
+
+function buyDouble(){
+
+if(data.double){
+
+toast(
+"قبلاً خریدی!"
+);
+
+return;
+
+}
+
+if(data.red < 4){
+
+toast(
+"❌ حداقل 4 Red Coin لازم داری."
+);
+
+return;
+
+}
+
+data.red -= 4;
+
+data.double=true;
+
+toast(
+"🔥 DOUBLE TAP فعال شد!"
+);
+
+save();
+
+}
+
+
+/* =================================
+   AUTO
+================================= */
+
+function buyAuto(){
+
+if(data.auto){
+
+toast(
+"قبلاً خریدی!"
+);
+
+return;
+
+}
+
+if(data.red < 20){
+
+toast(
+"❌ 20 Red Coin لازم داری."
+);
+
+return;
+
+}
+
+data.red -= 20;
+
+data.auto=true;
+
+toast(
+"🤖 AUTO CLICK فعال شد!"
+);
+
+save();
+
+}
+
+
+/* =================================
+   POWER
+================================= */
+
+function buyPower(){
+
+if(data.void < 1){
+
+toast(
+"❌ یک Void Coin لازم داری."
+);
+
+return;
+
+}
+
+data.void--;
+
+data.multiplier++;
+
+toast(
+"⚡ POWER افزایش یافت!"
+);
+
+save();
+
+}
+
+
+/* =================================
+   UPGRADE CLICK
+================================= */
+
+function upgradeClick(){
+
+let price=
+10*data.clickLevel;
+
+if(data.blue < price){
+
+toast(
+"❌ Blue Coin کافی نیست."
+);
+
+return;
+
+}
+
+data.blue-=price;
+
+data.clickLevel++;
+
+save();
+
+toast(
+"⚡ CLICK POWER ارتقا یافت!"
+);
+
+}
+
+
+/* =================================
+   LUCK
+================================= */
+
+function upgradeLuck(){
+
+let price=
+20*data.luckLevel;
+
+if(data.blue < price){
+
+toast(
+"❌ Blue Coin کافی نیست."
+);
+
+return;
+
+}
+
+data.blue-=price;
+
+data.luckLevel++;
+
+save();
+
+toast(
+"🍀 LUCK ارتقا یافت!"
+);
+
+}
+
+
+/* =================================
+   MULTIPLIER
+================================= */
+
+function upgradeMultiplier(){
+
+if(data.void < 1){
+
+toast(
+"❌ Void Coin کافی نیست."
+);
+
+return;
+
+}
+
+data.void--;
+
+data.multiplier++;
+
+save();
+
+toast(
+"💥 MULTIPLIER ارتقا یافت!"
+);
+
+}
+
+
+/* =================================
+   AUTO CLICK
+================================= */
+
+setInterval(
+
+()=>{
+
+if(data.auto){
+
+data.blue +=
+data.multiplier;
+
+convert();
+
+save();
+
+}
+
+},
+
+3000
+
+);
+
+
+/* =================================
+   PROFILE
+================================= */
+
+function saveProfile(){
+
+let name=
+document
+.getElementById("name")
+.value
+.trim();
+
+let avatar=
+document
+.getElementById("avatar")
+.value;
+
+if(!name){
+
+toast(
+"❌ اسم وارد کن."
+);
+
+return;
+
+}
+
+data.name=name;
+
+data.avatar=avatar;
+
+save();
+
+toast(
+"👤 پروفایل ساخته شد!"
+);
+
+}
+
+
+/* =================================
+   TRADE
+================================= */
+
+function trade(){
+
+let name=
+document
+.getElementById("tradeName")
+.value
+.trim();
+
+let coin=
+document
+.getElementById("tradeCoin")
+.value;
+
+let amount=
+Number(
+document
+.getElementById("tradeAmount")
+.value
+);
+
+if(!name){
+
+toast(
+"❌ اسم بازیکن را وارد کن."
+);
+
+return;
+
+}
+
+if(!amount || amount<=0){
+
+toast(
+"❌ مقدار نامعتبر."
+);
+
+return;
+
+}
+
+if(data[coin] < amount){
+
+toast(
+"❌ سکه کافی نداری."
+);
+
+return;
+
+}
+
+data[coin]-=amount;
+
+data.trades.unshift({
+
+name:name,
+
+coin:coin,
+
+amount:amount,
+
+time:
+new Date()
+.toLocaleString("fa-IR")
+
+});
+
+save();
+
+toast(
+"🎁 سکه ارسال شد!"
+);
+
+}
+
+
+/* =================================
+   ADMIN
+================================= */
+
+function openAdmin(){
+
+document
+.getElementById("adminModal")
+.classList.add("active");
+
+}
+
+function closeAdmin(){
+
+document
+.getElementById("adminModal")
+.classList.remove("active");
+
+}
+
+function login(){
+
+let password=
+document
+.getElementById("password")
+.value;
+
+if(password==="123"){
+
+closeAdmin();
+
+showPage("admin");
+
+toast(
+"👑 ADMIN ACCESS"
+);
+
+}else{
+
+toast(
+"❌ رمز اشتباه است."
+);
+
+}
+
+}
+
+
+/* =================================
+   ADMIN COINS
+================================= */
+
+function adminCoins(){
+
+const coins=[
+"blue",
+"red",
+"yellow",
+"void",
+"cursor",
+"god",
+"plus"
+];
+
+coins.forEach(
+c=>data[c]+=1000
+);
+
+save();
+
+toast(
+"💰 1000 تا از همه سکه‌ها گرفتی!"
+);
+
+}
+
+
+/* =================================
+   RESET
+================================= */
+
+function resetCoins(){
+
+if(
+!confirm(
+"همه سکه‌ها صفر شوند؟"
+)
+)return;
+
+data.blue=0;
+data.red=0;
+data.yellow=0;
+data.void=0;
+data.cursor=0;
+data.god=0;
+data.plus=0;
+
+save();
+
+toast(
+"🗑 سکه‌ها صفر شدند."
+);
+
+}
+
+
+/* =================================
+   UI
+================================= */
+
+function updateUI(){
+
+const coins=[
+"blue",
+"red",
+"yellow",
+"void",
+"cursor",
+"god",
+"plus"
+];
+
+coins.forEach(c=>{
+
+const home=
+document.getElementById(
+c+"Home"
+);
+
+if(home)
+home.innerText=
+data[c];
+
+});
+
+
+document.getElementById(
+"tBlue"
+).innerText=data.blue;
+
+document.getElementById(
+"tRed"
+).innerText=data.red;
+
+document.getElementById(
+"tYellow"
+).innerText=data.yellow;
+
+document.getElementById(
+"tVoid"
+).innerText=data.void;
+
+document.getElementById(
+"tCursor"
+).innerText=data.cursor;
+
+document.getElementById(
+"tGod"
+).innerText=data.god;
+
+document.getElementById(
+"tPlus"
+).innerText=data.plus;
+
+
+document.getElementById(
+"clickPower"
+).innerText=
+"+"+
+(
+data.clickLevel*
+data.multiplier*
+(data.double?2:1)
+)
++" 🔵";
+
+
+document.getElementById(
+"clickLevel"
+).innerText=
+data.clickLevel;
+
+
+document.getElementById(
+"luckLevel"
+).innerText=
+data.luckLevel;
+
+
+document.getElementById(
+"multiplier"
+).innerText=
+data.multiplier;
+
+
+document.getElementById(
+"clickPrice"
+).innerText=
+(10*data.clickLevel)
++" 🔵";
+
+
+document.getElementById(
+"doubleStatus"
+).innerText=
+data.double?
+"✅ فعال":
+"❌ فعال نیست";
+
+
+document.getElementById(
+"autoStatus"
+).innerText=
+data.auto?
+"✅ فعال":
+"❌ فعال نیست";
+
+
+if(data.name){
+
+document.getElementById(
+"profileBox"
+).style.display="block";
+
+document.getElementById(
+"nameShow"
+).innerText=
+data.name;
+
+document.getElementById(
+"avatarShow"
+).innerText=
+data.avatar;
+
+}
+
+}
+
+
+/* =================================
+   TOAST
+================================= */
+
+function toast(message){
+
+const box=
+document.getElementById(
+"toast"
+);
+
+box.innerText=message;
+
+box.classList.add("show");
+
+setTimeout(
+()=>{
+box.classList.remove("show");
+},
+2200
+);
+
+}
+
+
+/* =================================
+   START
+================================= */
+
+updateUI();
+
+</script>
+
+</body>
+</html>
